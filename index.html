@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>KLS 2026 - تهنئة السنة الجديدة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-image: url("A1.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;   
+  background-attachment: fixed;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  body {
+    background-size: 100% 100%; 
+  }
+}
+@media (max-width: 768px) {
+  body {
+    background-size: contain;  
+    background-color: black;  
+  }
+}
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      top: 20%;
+    }
+
+    .year {
+      font-size: 10vw;
+      font-weight: bold;
+      background: linear-gradient(90deg, #75f3ff, #b084ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    .tagline {
+      font-size: 3vw;
+      margin-top: 10px;
+      color: #cfe6ff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    .countdown {
+      font-size: 2vw;
+      margin-top: 20px;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 1vw 2vw;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #75f3ff;
+      color: #ffffff;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: background 0.3s;
+      font-size: 1.5vw;
+    }
+
+    .btn:hover { background: rgba(255,255,255,0.25); }
+
+    .credit {
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1vw;
+      color: #c0d8f0;
+      z-index: 2;
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear infinite;
+      z-index: 3;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+    #fireworks {
+      position: fixed;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+    }
+    .star {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle infinite;
+      z-index: 3;
+    }
+    
+  </style>
+</head>
+<body>
+<audio id="bgAudio" preload="auto" loop>
+  <source src="12.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="bgAudio" preload="auto" loop>
+  <source src="12.mp3" type="audio/mpeg">
+</audio>
+
+<div id="musicPrompt">
+  <button id="toggleMusic">🎵 تشغيل الموسيقى</button>
+</div>
+
+<style>
+  #musicPrompt {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+  }
+
+  #toggleMusic {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #007BFF, #00BFFF);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  #toggleMusic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+  }
+  #copyBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; 
+  z-index: 9999;
+  padding: 12px 20px;
+  font-size: 15px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #007bff, #00bfff);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.28);
+}
+</style>
+
+<script>
+  const audio = document.getElementById('bgAudio');
+  const btn = document.getElementById('toggleMusic');
+
+  audio.volume = 0.8;
+
+  btn.addEventListener('click', async () => {
+    if (audio.paused) {
+      try {
+        await audio.play();
+        btn.textContent = '⏸️ إيقاف الموسيقى';
+      } catch (e) {
+        console.log('خطأ في التشغيل:', e);
+        btn.textContent = '⚠️ لم يتم التشغيل';
+      }
+    } else {
+      audio.pause();
+      btn.textContent = '🎵 تشغيل الموسيقى';
+    }
+  });
+</script>
+<div class="overlay"></div>
+
+  <div class="content">
+    <div class="year">2026</div>
+    <div class="tagline">Happy New Year by KLS</div>
+    <div class="countdown" id="countdown">⏳ 38 days 17 hours 18 minutes 7 seconds</div>
+    <button class="btn" onclick="shareGreeting()">📤 مشاركة التهنئة</button>
+    <button class="btn" onclick="toggleLanguage()">🌐 تغيير اللغة</button>
+  </div>
+
+  <div class="credit">2026 • Happy New Year • By AHMAD HAMMOUD • Snow &amp; Trees</div>
+<img src="A2.jpg" alt="شعار الموقع" 
+     style="width:100px; height:100px; border-radius:50%; 
+            position:absolute; top:20px; left:20px;">
+
+  <script>
+
+     
+    function createSnowflake() {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      snowflake.style.left = Math.random() * window.innerWidth + "px";
+      snowflake.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      snowflake.style.width = snowflake.style.height = (Math.random() * 3 + 3) + "px";
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 10000);
+    }
+    setInterval(createSnowflake, 150);
+
+    let currentLang = navigator.language.startsWith("ar") ? "ar" : "en";
+    const countdownEl = document.getElementById("countdown");
+function createStar() {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.top = Math.random() * window.innerHeight + "px";
+      star.style.animationDuration = (Math.random() * 2 + 1.5) + "s";
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 5000);
+    }
+    const starInterval = setInterval(createStar, 500);
+    function updateCountdown() {
+      const newYear = new Date("Jan 1, 2026 00:00:00").getTime();
+      const now = new Date().getTime();
+      const diff = newYear - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      if (currentLang === "ar") {
+        countdownEl.innerHTML = `⏳ ${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
+      } else {
+        countdownEl.innerHTML = `⏳ ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+      }
+    }
+    setInterval(updateCountdown, 1000);
+
+    function toggleLanguage() {
+      currentLang = currentLang === "ar" ? "en" : "ar";
+      updateCountdown();
+    }
+
+    function shareGreeting() {
+      const text = currentLang === "ar"
+        ? "🎉 تهنئة السنة الجديدة 2026 من احمد حمود KLS ❄️"
+        : "🎉 Happy New Year 2026 by Ahmad hammoud KLS ❄️";
+      const url = "https://wa.me/?text=" + encodeURIComponent(text);
+      window.open(url, "_blank");
+    }
+
+    function openGift() {
+      alert(currentLang === "ar"
+        ? "🎁 مفاجأة السنة الجديدة: نتمنى لك عام مليء بالنجاح والسعادة مع كامل الاحترام احمد حمود   !"
+        : "🎁 New Year Surprise: Wishing you a year full of success and joy With all due respect Ahmad hammoud!");
+    }
+
+    function launchFireworks() {
+      const canvas = document.getElementById("fireworks");
+      const ctx = canvas.getContext("2d");
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      const particles = [];
+      const colors = ['#ff4d4f', '#ffd666', '#69c0ff', '#b37feb', '#95de64'];
+
+      function createBurst(x, y) {
+        const count = 100;
+        for (let i = 0; i < count; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 5 + 2;
+          particles.push({
+            x, y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            alpha: 1,
+            size: Math.random() * 2 + 1.2,
+            color: colors[Math.floor(Math.random() * colors.length)]
+          });
+        }
+      }
+
+      const bursts = 6;
+      for (let i = 0; i < bursts; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height * 0.6;
+        createBurst(x, y);
+      }
+
+      let animId;
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.035;     
+          p.alpha -= 0.012;  
+
+          ctx.globalAlpha = Math.max(p.alpha, 0);
+          ctx.fillStyle = p.color;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+    
+        for (let i = particles.length - 1; i >= 0; i--) {
+          if (particles[i].alpha <= 0) particles.splice(i, 1);
+        }
+
+        if (particles.length > 0) {
+          animId = requestAnimationFrame(animate);
+        } else {
+          cancelAnimationFrame(animId);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+      animate();
+    }
+
+    
+    window.addEventListener("beforeunload", () => {
+      clearInterval(snowInterval);
+      clearInterval(starInterval);
+      clearInterval(countdownInterval);
+    });
+  </script>
+
+<div class="snowflake" style="left: 809.157px; animation-duration: 8.15781s; height: 5.59685px; width: 5.59685px;"></div><div class="snowflake" style="left: 815.562px; animation-duration: 7.67218s; height: 4.3969px; width: 4.3969px;"></div><div class="snowflake" style="left: 807.161px; animation-duration: 9.04738s; height: 5.15377px; width: 5.15377px;"></div><div class="snowflake" style="left: 422.694px; animation-duration: 6.4444s; height: 4.965px; width: 4.965px;"></div><div class="snowflake" style="left: 798.554px; animation-duration: 6.45402s; height: 3.37153px; width: 3.37153px;"></div><div class="snowflake" style="left: 785.762px; animation-duration: 7.69136s; height: 3.87737px; width: 3.87737px;"></div><div class="snowflake" style="left: 1288.3px; animation-duration: 6.26438s; height: 5.72244px; width: 5.72244px;"></div><div class="snowflake" style="left: 33.6432px; animation-duration: 5.53007s; height: 5.40092px; width: 5.40092px;"></div><div class="snowflake" style="left: 741.18px; animation-duration: 9.14749s; height: 4.09776px; width: 4.09776px;"></div><div class="snowflake" style="left: 613.233px; animation-duration: 8.83437s; height: 4.97417px; width: 4.97417px;"></div><div class="snowflake" style="left: 670.473px; animation-duration: 5.94984s; height: 4.55594px; width: 4.55594px;"></div><div class="snowflake" style="left: 46.1016px; animation-duration: 9.19494s; height: 5.86204px; width: 5.86204px;"></div><div class="snowflake" style="left: 396.58px; animation-duration: 9.10462s; height: 3.27281px; width: 3.27281px;"></div><div class="snowflake" style="left: 535.007px; animation-duration: 7.25055s; height: 5.17433px; width: 5.17433px;"></div><div class="snowflake" style="left: 345.853px; animation-duration: 8.5278s; height: 3.72023px; width: 3.72023px;"></div><div class="snowflake" style="left: 1241.02px; animation-duration: 9.47332s; height: 5.29382px; width: 5.29382px;"></div><div class="snowflake" style="left: 155.522px; animation-duration: 9.89235s; height: 3.35926px; width: 3.35926px;"></div><div class="snowflake" style="left: 77.1833px; animation-duration: 7.75261s; height: 5.06759px; width: 5.06759px;"></div><div class="snowflake" style="left: 165.734px; animation-duration: 5.22243s; height: 3.96792px; width: 3.96792px;"></div><div class="snowflake" style="left: 393.959px; animation-duration: 5.5276s; height: 3.44528px; width: 3.44528px;"></div><div class="snowflake" style="left: 126.136px; animation-duration: 8.21962s; height: 5.66394px; width: 5.66394px;"></div><div class="snowflake" style="left: 1151.15px; animation-duration: 9.27263s; height: 4.10282px; width: 4.10282px;"></div><div class="snowflake" style="left: 106.732px; animation-duration: 9.23924s; height: 4.11691px; width: 4.11691px;"></div><div class="snowflake" style="left: 530.501px; animation-duration: 7.14679s; height: 5.38255px; width: 5.38255px;"></div><div class="snowflake" style="left: 212.895px; animation-duration: 7.82373s; height: 3.87677px; width: 3.87677px;"></div><div class="snowflake" style="left: 112.882px; animation-duration: 5.14148s; height: 4.18021px; width: 4.18021px;"></div><div class="snowflake" style="left: 895.844px; animation-duration: 6.14179s; height: 4.73879px; width: 4.73879px;"></div><div class="snowflake" style="left: 1172.58px; animation-duration: 9.29233s; height: 5.49079px; width: 5.49079px;"></div><div class="snowflake" style="left: 612.515px; animation-duration: 6.56457s; height: 4.09336px; width: 4.09336px;"></div><div class="snowflake" style="left: 663.579px; animation-duration: 7.80041s; height: 4.36054px; width: 4.36054px;"></div><div class="snowflake" style="left: 867.75px; animation-duration: 6.84109s; height: 3.33493px; width: 3.33493px;"></div><div class="snowflake" style="left: 1001.86px; animation-duration: 7.86579s; height: 5.50262px; width: 5.50262px;"></div><div class="snowflake" style="left: 1124.81px; animation-duration: 9.76698s; height: 3.59734px; width: 3.59734px;"></div><div class="snowflake" style="left: 1303.76px; animation-duration: 8.38542s; height: 5.91866px; width: 5.91866px;"></div><div class="snowflake" style="left: 364.429px; animation-duration: 5.53434s; height: 5.71293px; width: 5.71293px;"></div><div class="snowflake" style="left: 277.861px; animation-duration: 9.15086s; height: 5.41115px; width: 5.41115px;"></div><div class="snowflake" style="left: 474.711px; animation-duration: 5.70874s; height: 4.74242px; width: 4.74242px;"></div><div class="snowflake" style="left: 548.772px; animation-duration: 9.15264s; height: 5.26568px; width: 5.26568px;"></div><div class="snowflake" style="left: 928.465px; animation-duration: 8.60747s; height: 4.06587px; width: 4.06587px;"></div><div class="snowflake" style="left: 84.3664px; animation-duration: 8.81318s; height: 3.19246px; width: 3.19246px;"></div><div class="snowflake" style="left: 222.023px; animation-duration: 5.59475s; height: 3.55344px; width: 3.55344px;"></div><div class="snowflake" style="left: 43.5255px; animation-duration: 9.45453s; height: 3.56452px; width: 3.56452px;"></div><div class="snowflake" style="left: 584.072px; animation-duration: 5.2768s; height: 5.88542px; width: 5.88542px;"></div><div class="snowflake" style="left: 90.5922px; animation-duration: 8.71821s; height: 4.35578px; width: 4.35578px;"></div><div class="snowflake" style="left: 1327.27px; animation-duration: 8.31938s; height: 3.15379px; width: 3.15379px;"></div><div class="snowflake" style="left: 950.564px; animation-duration: 5.43663s; height: 5.6776px; width: 5.6776px;"></div><div class="snowflake" style="left: 155.021px; animation-duration: 8.21658s; height: 5.80932px; width: 5.80932px;"></div><div class="snowflake" style="left: 197.742px; animation-duration: 7.41011s; height: 5.71745px; width: 5.71745px;"></div><div class="snowflake" style="left: 714.89px; animation-duration: 8.73929s; height: 3.91927px; width: 3.91927px;"></div><div class="snowflake" style="left: 200.423px; animation-duration: 5.2613s; height: 3.70424px; width: 3.70424px;"></div><div class="snowflake" style="left: 45.9562px; animation-duration: 9.23581s; height: 4.06954px; width: 4.06954px;"></div><div class="snowflake" style="left: 1136.27px; animation-duration: 9.79371s; height: 3.57564px; width: 3.57564px;"></div><div class="snowflake" style="left: 1071.2px; animation-duration: 5.74942s; height: 4.98865px; width: 4.98865px;"></div><div class="snowflake" style="left: 424.092px; animation-duration: 5.55445s; height: 5.17101px; width: 5.17101px;"></div><div class="snowflake" style="left: 191.608px; animation-duration: 5.13743s; height: 5.60493px; width: 5.60493px;"></div><div class="snowflake" style="left: 818.024px; animation-duration: 6.77853s; height: 3.84155px; width: 3.84155px;"></div><div class="snowflake" style="left: 837.976px; animation-duration: 8.80754s; height: 5.94504px; width: 5.94504px;"></div><div class="snowflake" style="left: 145.592px; animation-duration: 7.77914s; height: 4.4725px; width: 4.4725px;"></div><div class="snowflake" style="left: 816.602px; animation-duration: 6.33871s; height: 5.0092px; width: 5.0092px;"></div><div class="snowflake" style="left: 1101.18px; animation-duration: 6.81176s; height: 3.53923px; width: 3.53923px;"></div><div class="snowflake" style="left: 717.915px; animation-duration: 9.04692s; height: 4.71638px; width: 4.71638px;"></div><div class="snowflake" style="left: 195.509px; animation-duration: 5.84675s; height: 5.61121px; width: 5.61121px;"></div><div class="snowflake" style="left: 176.177px; animation-duration: 9.82361s; height: 5.75694px; width: 5.75694px;"></div><div class="snowflake" style="left: 1177.35px; animation-duration: 7.12119s; height: 4.15999px; width: 4.15999px;"></div><div class="snowflake" style="left: 1308.75px; animation-duration: 9.20658s; height: 3.4731px; width: 3.4731px;"></div><div class="snowflake" style="left: 934.391px; animation-duration: 5.85438s; height: 3.13363px; width: 3.13363px;"></div></body></html>
